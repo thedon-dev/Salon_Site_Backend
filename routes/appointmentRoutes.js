@@ -8,7 +8,6 @@ router.post("/book", async (req, res) => {
   const { service, date, time, user } = req.body;
 
   try {
-    // Store in Google Sheets
     await addAppointmentToSheet(service, date, time, user);
 
     // Send Emails using Resend
@@ -19,7 +18,7 @@ router.post("/book", async (req, res) => {
     );
 
     await sendEmail(
-      "spa-owner@example.com",
+      "viktoh7351@gmail.com",
       "New Booking Alert",
       `A new appointment was booked.<br><br>Service: ${service}<br>Date: ${date}<br>Time: ${time}<br>Customer: ${user.name} (${user.email})`
     );
